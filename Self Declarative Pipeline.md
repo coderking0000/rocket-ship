@@ -326,6 +326,7 @@ SELECT
   deductibleamount
 FROM reinsurancesource.policies_curated;
 ```
+
 ### Creating a Temporary View (Intermediate)
 ```sql
 CREATE TEMPORARY VIEW policytreatymaptv
@@ -340,6 +341,7 @@ JOIN treaties_mv t
   ON p.region = t.region
 AND p.lob    = t.lob;
 ```
+
 ### Creating a Streaming Table
 ```sql 
 CREATE STREAMING TABLE rawclaimsst
@@ -354,6 +356,7 @@ SELECT
   lob
 FROM STREAM reinsurancesource.claims_events;
 ```
+
 ### Querying Tables in the Pipeline — Enrich → Aggregate
 #### Enriched claims (batch MV consuming streaming):
 ```sql
@@ -397,6 +400,7 @@ SELECT
 FROM treatyallocationsmv
 GROUP BY treatyid, lossdate;
 ```
+
 ### Using Multiple Flows to Write to a Single Target
 ``` sql
 -- Unified streaming target

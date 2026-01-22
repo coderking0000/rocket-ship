@@ -390,7 +390,7 @@ LEFT JOIN treatiesmv t
 GROUP BY e.treatyid, e.lossdate;
 ```
 #### Daily treaty loss (final analytics):
-```sql 
+```sql
 CREATE MATERIALIZED VIEW dailytreatylossesmv
 AS
 SELECT
@@ -402,7 +402,7 @@ GROUP BY treatyid, lossdate;
 ```
 
 ### Using Multiple Flows to Write to a Single Target
-``` sql
+```sql
 -- Unified streaming target
 CREATE STREAMING TABLE claimsconsolidatedst;
  

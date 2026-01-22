@@ -1,6 +1,9 @@
 # Apache Spark 4.1 — Introduction
 
-Apache Spark 4.1.0 is the latest major release in the Spark 4.x series, continuing the project’s momentum with a strong focus on performance, usability, and developer productivity. This release reflects a collaborative effort from the open-source community, addressing over 1,800 JIRA tickets with contributions from more than 230 individuals. Spark remains a unified analytics engine designed for large-scale data processing, offering high-level APIs and optimized execution across distributed environments.
+## Collab
+1. [Ankita Hatibaruah](https://github.com/Ahb98)
+
+Apache Spark 4.1.0 is the latest major release in the Spark 4.x series, continuing the project’s momentum with a strong focus on performance, usability, and developer productivity. Spark remains a unified analytics engine designed for large-scale data processing, offering high-level APIs and optimized execution across distributed environments.
 
 Spark 4.1 improves the developer experience with faster Python support, more capable SQL and streaming engines, enhanced error handling, and lower latency real-time processing. These enhancements make Spark more efficient, robust, and accessible for both traditional big data workloads and modern real-time analytic use cases.
 

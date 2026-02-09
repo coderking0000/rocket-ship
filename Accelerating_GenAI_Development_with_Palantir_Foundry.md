@@ -131,8 +131,40 @@ Foundry’s model:
 
 For organizations with stringent compliance and audit requirements, this integrated approach often shortens security review cycles compared to a fully custom stack.
 
+## Example Use Case: Incident Triage Agent
 
-<!--   -->
+Typical tech stack:
+- Data + Ontology: Foundry(Incident, Asset, WorkOrder obejcts).
+- LLM + Logic: AIP Logic + AIP Agent Studio
+- Frontend: Foundry Workshop app
+
+### Foundry Implementation
+
+Say we have the following Ontology objects already created and powering up our existing operational workflows. Now we want to add a Agentic workflow that automates the creation of work order based on the incident's description.
+
+Ontology have 4 objects - **Incident**, **Asset**, **Work Order**, **Maintenance Event**
+Incidents are linked to Assets and Work Orders and Assets ar linked to Maintenance events
+We also have a action associated with Work Order to create a new work order.
+<!-- example image -->
+
+In Agent Studio, we can create agent that leverages the ontology objects and links bind the actions as tools and configure the agent via prompts and settings rather than raw JSON schemas.
+
+<!-- agent-studio -->
+
+In Workshop, we can build an app that shows Incident list and detail view bound directly to Ontology objects
+An agent panel that uses the selected Incident as context automatically and summarizes and provides actions to user
+
+<!-- workshop-application -->
+
+Setup the action as a tool to allow agent to create a work order and query tool to traverse the ontology links to find similar incidents.
+
+<!-- genai-tools -->
+
+Set up AIP Eval, to test the agent on historical incidents, Use LLM-as-a-judge to score quality.
+<!-- genai-evals -->
+
+
+All of this is done within a single platform, with fewer separate services to integrate. This reduces end-to-end delivery time to a few weeks or less, with a more straightforward security and governance story.
 
 
 ## Conclusion

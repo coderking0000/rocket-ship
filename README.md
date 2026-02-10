@@ -40,5 +40,12 @@ Long-form posts on data engineering and technology in collaboration with my team
 1. [Anudeep Chatradi](https://github.com/anudeepchatradi), [LinkedIn](https://www.linkedin.com/in/anudeep-chatradi-78757298/)                                                   
 2. [Abhishek Narayan Chaudhury](https://github.com/achaudhury7378), [LinkedIn](https://www.linkedin.com/in/abhishek-chaudhury-07422b191/)                                                 
                                       
----                                                                         
+---                                                             
+                                                  
+### 04 [**GenAI** Applications in Palantir Foundry (**AIP**)](https://github.com/shauryashaurya/rocket-ship/blob/main/GenAI_in_Palantir_Foundry.md)                                                        
+#### Collaborators:                               
+1. [Harsh Gautam](https://github.com/harsh-gautam), [LinkedIn](https://www.linkedin.com/in/harsh-gautam27/)                                                                                                    
+                                      
+---   
 						                                       
+                   

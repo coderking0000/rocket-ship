@@ -28,8 +28,12 @@ The application:
 - Screens a predefined stock universe.
 - Enriches results with RAG-based qualitative context.
 - Ranks candidates using LLM reasoning.
+- Uses real-time data via yfinance.
+- Stores embeddings in ChromaDB.
+- Leverages Gemini as the language model.
+- Uses DSPy modules to define analytical signatures and optimize prompts.
 
-The important part is the architecture—not the specific domain.
+The important takeaway is not the stock screener itself, but the architecture: modular reasoning, evaluation-driven optimization, and interchangeable retrieval strategies.
 
 ---
 

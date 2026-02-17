@@ -136,7 +136,8 @@ Map cleaned datasets to core business entities (object types), not raw tables:
 
 Create them from **New** → **Object Type**
 
-<img width="341" height="399" alt="image" src="https://github.com/user-attachments/assets/aca2d69e-ec3e-4725-af87-5ef9eb009ff9" />
+![step1](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S1.png)
+
 
 #### Step 2 — Choose Stable Identifiers
 Each object type must be anchored to a stable, globally unique identifier. These identifiers ensure that the same real-world entity is consistently recognized across datasets, pipelines, and applications. For example, Customer ID can serve as the primary key for the Customer object, while a human-readable attribute such as Last Name can be used as the display title.

@@ -248,13 +248,13 @@ Unstructured Data → Parsing → Extraction → Text → Chunking → Tokenizat
 <img width="538" height="273" alt="image" src="https://github.com/user-attachments/assets/17e39c92-b2f2-4789-9d47-7bc0b5d29b35" />
 
 #### STEP‑BY‑STEP PIPELINE
-#### STEP 1 — Upload Unstructured Files to a Media Set
+#### Step 1 — Upload Unstructured Files to a Media Set
 Unstructured documents like **PDFs, PPTs, scanned pages, or images** are uploaded into a Media Set.
 -	At this stage, files are still **raw binary data**.
 -	No semantic meaning exists yet.
 -	Pipeline Builder treats them as media assets awaiting parsing.
 
-#### STEP 2 — Create a Pipeline (Batch or Streaming)
+#### Step 2 — Create a Pipeline (Batch or Streaming)
 Choose ingestion style:
 **Batch Pipelines**
 For historical or already‑ingested data.
@@ -264,7 +264,7 @@ Both modes apply the same transformations—only timing changes.
 
 <img width="657" height="233" alt="image" src="https://github.com/user-attachments/assets/13cd9351-2b01-4068-b365-d29e73618c92" />
 
-#### STEP 3 — Document Nature Identification
+#### Step 3 — Document Nature Identification
 Every document is either:
 - Digitally Born PDFs
 Contain embedded selectable text.<br>
@@ -280,7 +280,7 @@ Contains only pixel-level text.<br>
 
 <img width="663" height="230" alt="image" src="https://github.com/user-attachments/assets/b87493c2-41a6-4af6-a893-6b5a84eb3433" />
 
-#### STEP 4 — Parse & Extract Text
+#### Step 4 — Parse & Extract Text
 Start with:<br>
 
 **Block: Convert Media Set to Table Rows**
@@ -290,3 +290,39 @@ Then apply:<br>
 **Block: Extract Text from PDF (OCR)**
 -	Used when raw text is not present
 -	Output = Array of pages ([page_1_text, page_2_text, ...])
+
+Normalize arrays via:
+-	**Explode Array with Position**
+-	**Extract Struct with Many Fields**
+
+**Result**: Clean page-level text with file ID + page number.
+
+<img width="600" height="250" alt="image" src="https://github.com/user-attachments/assets/19919302-d387-498b-a03d-bfbf09094288" />
+
+#### Step 5 — Chunking the Extracted Text
+Large text blocks are split into **semantically meaningful chunks** using **Chunk String**.
+
+**Benefits**:
+-	Higher semantic precision
+-	Better embedding quality
+-	Improved search relevance
+-	Clause-level retrieval (critical for insurance/legal documents)
+
+**Chunking Strategy**:
+-	Length-based
+-	Semantic based
+-	Header/section-based
+-	With controlled overlap to preserve context
+
+<img width="400" height="250" alt="image" src="https://github.com/user-attachments/assets/2290b393-61c3-4f69-bafb-58f4eab938a2" />
+
+#### Step 6 — Generate Embeddings
+
+Using the **Text-to-Embedding** block, chunked text turns into numerical vectors.<br>
+
+Embeddings capture:<br>
+-	Meaning
+-	Intent
+-	Context
+-	Topic
+```Output → One vector per chunk → AI‑ready representation.```

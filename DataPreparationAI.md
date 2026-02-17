@@ -397,3 +397,25 @@ Extracting text from PDFs is essential for downstream AI tasks. Foundry supports
 | **Customizability** | Low | Low | Medium | High (model choice) | High | High |
 | **Integration with Foundry** | Native | Native | Native | Native (code repo) | Manual install | Manual install |
 | **Support & Maintenance** | Palantir Supported | Palantir Supported | Palantir Supported | Palantir Supported | Community / Self-maintained | Community / Self-maintained |
+
+
+Code : using visionLLM   <br>
+
+```
+from transforms.api import Output, transform 
+from transforms.mediasets import MediaSetInput 
+from palantir_models.transforms import VisionLLMDocumentsExtractorInput @transform( output=Output("ri.foundry.main.dataset.vision_llm"), input=MediaSetInput("ri.mio.main.media-set.abc"), extractor=VisionLLMDocumentsExtractorInput( "ri.language-model-service.language-model.anthropic-claude-3-7-sonnet" ), ) 
+def compute(ctx, input, output, extractor): # Extract data from the media set using VisionLLM extracted_data = extractor.create_extraction(input, with_ocr=False) 
+# Write the extracted data to the output dataset 
+output.write_dataframe( extracted_data, column_typeclasses={ "mediaReference": [{"kind": "reference", "name": "media_reference"}] }, )
+
+```
+
+#### Step 3: Text Normalization
+
+Before chunking or embedding, normalizing text ensures consistency and improves downstream AI performance. In Foundry, you can:<br>
+-	Trim whitespace and normalize case (e.g., all lowercase).
+-	Remove or standardize special characters.
+-	Apply Unicode normalization for consistent encoding.
+-	Nullify empty or placeholder values (e.g., "N/A", "Unknown").
+-	Date format normalization  

@@ -247,10 +247,11 @@ Unstructured Data → Parsing → Extraction → Text → Chunking → Tokenizat
 
 ```
 
-<img width="538" height="273" alt="image" src="https://github.com/user-attachments/assets/17e39c92-b2f2-4789-9d47-7bc0b5d29b35" />
+![P1](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P1.png)
 
 #### STEP‑BY‑STEP PIPELINE
 #### Step 1 — Upload Unstructured Files to a Media Set
+![P2](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P2.png)
 Unstructured documents like **PDFs, PPTs, scanned pages, or images** are uploaded into a Media Set.
 -	At this stage, files are still **raw binary data**.
 -	No semantic meaning exists yet.
@@ -264,7 +265,7 @@ For historical or already‑ingested data.
 For continuous incoming documents (real‑time ingestion).
 Both modes apply the same transformations—only timing changes.
 
-<img width="657" height="233" alt="image" src="https://github.com/user-attachments/assets/13cd9351-2b01-4068-b365-d29e73618c92" />
+![P3](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P3.png)
 
 #### Step 3 — Document Nature Identification
 Every document is either:
@@ -280,7 +281,7 @@ Contains only pixel-level text.<br>
 - Use OCR only if text is missing
 
 
-<img width="663" height="230" alt="image" src="https://github.com/user-attachments/assets/b87493c2-41a6-4af6-a893-6b5a84eb3433" />
+![P4](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P4.png)
 
 #### Step 4 — Parse & Extract Text
 Start with:<br>
@@ -299,7 +300,7 @@ Normalize arrays via:
 
 **Result**: Clean page-level text with file ID + page number.
 
-<img width="600" height="250" alt="image" src="https://github.com/user-attachments/assets/19919302-d387-498b-a03d-bfbf09094288" />
+![P5](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P5.png)
 
 #### Step 5 — Chunking the Extracted Text
 Large text blocks are split into **semantically meaningful chunks** using **Chunk String**.
@@ -316,7 +317,7 @@ Large text blocks are split into **semantically meaningful chunks** using **Chun
 -	Header/section-based
 -	With controlled overlap to preserve context
 
-<img width="400" height="250" alt="image" src="https://github.com/user-attachments/assets/2290b393-61c3-4f69-bafb-58f4eab938a2" />
+![P6](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P6.png)
 
 #### Step 6 — Generate Embeddings
 
@@ -329,7 +330,7 @@ Embeddings capture:<br>
 -	Topic
 ```Output → One vector per chunk → AI‑ready representation.```
 
-<img width="669" height="281" alt="image" src="https://github.com/user-attachments/assets/21784e03-1b4f-4982-be6a-05b74b8d6a23" />
+![P7](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_P7.png)
 
 #### Step 7 — Store Output as Ontology Objects
 Final embeddings are stored as Ontology Object Types.<br>
@@ -369,7 +370,7 @@ Pipeline Builder transforms messy, unstructured documents into precise, semantic
 
 ### 2.)Unstructured Data preparation for AI modals using code repository:
 Preparing unstructured data, such as PDFs, for AI model training and inference is a common workflow in Palantir Foundry. This article outlines a robust, production-ready pipeline using the Foundry code repository, covering data ingestion from Microsoft SharePoint, PDF extraction (with a comparison of available libraries), normalization, semantic chunking, embedding strategies, vector database integration, data versioning, and guidance on choosing between snapshot and incremental transforms.
-<img width="1110" height="82" alt="image" src="https://github.com/user-attachments/assets/2547c891-31ec-40e9-874c-986c1297aa12" />
+![C1](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_C1.png)
 
 #### Step 1: Data Ingestion from Microsoft SharePoint
 Foundry provides a SharePoint Online connector for ingesting files (including PDFs) directly into datasets. The connector supports file-based ingestion and can be configured for scheduled syncs.<br>

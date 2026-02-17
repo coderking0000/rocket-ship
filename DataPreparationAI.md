@@ -412,10 +412,23 @@ output.write_dataframe( extracted_data, column_typeclasses={ "mediaReference": [
 ```
 
 #### Step 3: Text Normalization
-
 Before chunking or embedding, normalizing text ensures consistency and improves downstream AI performance. In Foundry, you can:<br>
 -	Trim whitespace and normalize case (e.g., all lowercase).
 -	Remove or standardize special characters.
 -	Apply Unicode normalization for consistent encoding.
 -	Nullify empty or placeholder values (e.g., "N/A", "Unknown").
 -	Date format normalization  
+```
+import pandas as pd 
+import unicodedata 
+def normalize_text(text): 
+if not isinstance(text, str): 
+return "" 
+text = text.strip().lower() 
+text = unicodedata.normalize("NFKC", text) 
+text = text.replace("n/a", "").replace("unknown", "") 
+return text extracted_data["normalized_text"]=extracted_data["text"].apply(normalize_text)
+
+```
+
+

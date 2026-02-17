@@ -144,3 +144,73 @@ Each object type must be anchored to a stable, globally unique identifier. These
 
 The same principle is applied across Product and Sales objects to maintain consistent identity and traceability across the ontology.
 
+#### Step 3 — Model Properties (Strong Types & Units)
+At this stage, technical columns are transformed into well-defined business attributes with strong data types, validation rules, and units. This ensures that downstream analytics and AI systems interpret values consistently and correctly.
+•	Customer email (validated string format)
+•	Product price (decimal with currency constraints)
+•	Transaction date (timestamp with timezone handling)
+
+#### Step 4 — Define Link Types (Relationships)
+Beyond defining individual objects, Ontology captures how business entities relate to each other. These relationships create a connected semantic layer that enables richer analysis, traceability, and AI-driven reasoning
+•	Customer -> Sales as one-to-many relationship
+•	Sales -> Product as many-to-many relationship
+•	Relationships are derived from foreign keys and join logic to maintain referential integrity across objects.
+
+<img width="842" height="614" alt="image" src="https://github.com/user-attachments/assets/0f5bdfa0-c5b6-4ae9-8558-81c4fdd23f39" />
+
+#### Step 5 — Attach Policies (Security & Sensitivity) 
+Security and data sensitivity are embedded directly into the Ontology layer, ensuring that sensitive information is protected consistently across all applications and users. Instead of managing access separately in downstream systems, policies are defined at the data model level, making governance enforceable by design.
+Sensitive attributes such as email and phone are marked as PII and configured for masking or encryption.
+
+**PII Protection with Cipher**: 
+•	Create a Cipher Channel and issue a Cipher Data Manager License. 
+
+<img width="518" height="471" alt="image" src="https://github.com/user-attachments/assets/31962161-8f0f-44f6-8bf4-4a6839e11135" />
+
+<img width="809" height="606" alt="image" src="https://github.com/user-attachments/assets/7d8bf675-0d07-4ecd-8c07-9a5d8c902dac" />
+
+<img width="1141" height="627" alt="image" src="https://github.com/user-attachments/assets/413b6f3a-e038-4ee6-89f6-392846c32e14" />
+
+•	Add the bellaso-python-lib to your code repository. (Add bellaso-python-lib in the requirements.run block in conda_recipe/meta.yml. You can also do this automatically by adding it in the Libraries panel of your Code Repository environment.)
+•	Encrypt PII columns in your Python transform using Cipher operations as per the example shown:
+
+```
+from bellaso_python_lib.encryption.encrypter_input import EncrypterInput
+
+@transform.spark.using(
+   	encrypter=EncrypterInput("Cipher Customer Details"),
+    	output=Output("Customer_Updated",
+   	 customer_input=Input("Customer"),
+)
+
+```
+•	Building encrypted datasets requires Admin or Data Manager permission.
+•	Reference the encrypted dataset in Ontology Manager, set PII property type to CipherText, and assign the default Cipher Channel.
+
+
+**Row-Level Security in Ontology Manager**
+•	In Ontology Manager, navigate to the object type you want to secure.
+•	Go to the **Security tab**.
+•	Create a restricted view of the backing dataset and compose your row-level security policy (e.g., restrict access to rows where region = ‘EMEA’ to specific user groups).
+•	Assign the policy to the appropriate user groups and save. Only users who meet the policy criteria will be able to view those rows
+
+<img width="967" height="140" alt="image" src="https://github.com/user-attachments/assets/a72b9722-d337-4fcd-83ee-6144ad629308" />
+
+<img width="976" height="430" alt="image" src="https://github.com/user-attachments/assets/4e8556f4-036c-4737-9149-cdbf0f1d4222" />
+
+#### Step 6 — Create Derived Semantics
+Ontology also supports derived attributes that encode business logic directly into the data model. These computed properties allow analytics and AI applications to use consistent, trusted metrics without recalculating logic in every downstream system.
+Add computed attributes that capture business logic:
+•	total_amount = quantity × unit_price
+•	customer_lifetime_value based on historical transactions
+•	product_velocity from inventory turnover rates
+
+#### Step 7 — Publish & Version the Ontology
+Once modeled, the ontology is published as a governed, versioned layer that serves as a consistent foundation for applications, analytics, and AI systems
+•	Publish objects governed API-backed entities.
+•	Maintain semantic versions and change notes.
+
+
+
+
+

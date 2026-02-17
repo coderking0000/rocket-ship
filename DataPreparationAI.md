@@ -142,7 +142,7 @@ Create them from **New** → **Object Type**
 #### Step 2 — Choose Stable Identifiers
 Each object type must be anchored to a stable, globally unique identifier. These identifiers ensure that the same real-world entity is consistently recognized across datasets, pipelines, and applications. For example, Customer ID can serve as the primary key for the Customer object, while a human-readable attribute such as Last Name can be used as the display title.
 
-<img width="939" height="607" alt="image" src="https://github.com/user-attachments/assets/12db3dfd-b55b-4a8c-a6c8-525101a6f34d" />
+![step2](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S2.png)
 
 The same principle is applied across Product and Sales objects to maintain consistent identity and traceability across the ontology.
 
@@ -158,7 +158,7 @@ Beyond defining individual objects, Ontology captures how business entities rela
 -	Sales -> Product as many-to-many relationship
 -	Relationships are derived from foreign keys and join logic to maintain referential integrity across objects.
 
-<img width="842" height="614" alt="image" src="https://github.com/user-attachments/assets/0f5bdfa0-c5b6-4ae9-8558-81c4fdd23f39" />
+![step4](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S3.png)
 
 #### Step 5 — Attach Policies (Security & Sensitivity) 
 Security and data sensitivity are embedded directly into the Ontology layer, ensuring that sensitive information is protected consistently across all applications and users. Instead of managing access separately in downstream systems, policies are defined at the data model level, making governance enforceable by design.
@@ -167,11 +167,11 @@ Sensitive attributes such as email and phone are marked as PII and configured fo
 **PII Protection with Cipher**: 
 -	Create a Cipher Channel and issue a Cipher Data Manager License. 
 
-<img width="518" height="471" alt="image" src="https://github.com/user-attachments/assets/31962161-8f0f-44f6-8bf4-4a6839e11135" />
+![step5_1](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S4.png)
 
-<img width="809" height="606" alt="image" src="https://github.com/user-attachments/assets/7d8bf675-0d07-4ecd-8c07-9a5d8c902dac" />
+![step5_2](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S5.png)
 
-<img width="1141" height="627" alt="image" src="https://github.com/user-attachments/assets/413b6f3a-e038-4ee6-89f6-392846c32e14" />
+![step5_3](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S6.png)
 
 -	Add the bellaso-python-lib to your code repository. (Add bellaso-python-lib in the requirements.run block in conda_recipe/meta.yml. You can also do this automatically by adding it in the Libraries panel of your Code Repository environment.)
 -	Encrypt PII columns in your Python transform using Cipher operations as per the example shown:
@@ -196,9 +196,9 @@ from bellaso_python_lib.encryption.encrypter_input import EncrypterInput
 -	Create a restricted view of the backing dataset and compose your row-level security policy (e.g., restrict access to rows where region = ‘EMEA’ to specific user groups).
 -	Assign the policy to the appropriate user groups and save. Only users who meet the policy criteria will be able to view those rows
 
-<img width="967" height="140" alt="image" src="https://github.com/user-attachments/assets/a72b9722-d337-4fcd-83ee-6144ad629308" />
+![step5_6](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S8.png)
 
-<img width="976" height="430" alt="image" src="https://github.com/user-attachments/assets/4e8556f4-036c-4737-9149-cdbf0f1d4222" />
+![step5_5](https://github.com/pavankumarbusetty/rocket-ship/blob/main/images/5_DataAI_S7.png)
 
 #### Step 6 — Create Derived Semantics
 Ontology also supports derived attributes that encode business logic directly into the data model. These computed properties allow analytics and AI applications to use consistent, trusted metrics without recalculating logic in every downstream system.

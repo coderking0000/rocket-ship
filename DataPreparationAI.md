@@ -42,7 +42,20 @@ Raw Structured Data -> Data Issue Identification -> Standardized Cleaning & Vali
 
 ### Step 1: Data Issue Identification
 
-Common Enterprise Data Quality Issues (with Examples & Resolution Strategies)
+**Common Enterprise Data Quality Issues (with Examples & Resolution Strategies)**
 In Palantir Foundry, identifying issues early helps define what cleaning logic, validation checks, and reusable transformations should be built into pipelines. Even structured tables develop recurring quality problems due to manual inputs, system migrations, and multiple source integrations.
 Below are the most common issues specifically aligned to our datasets, along with resolution strategies. These recurring patterns allow us to design standardized, reusable cleaning logic in Foundry that can be applied consistently across pipelines instead of solving data quality issues in isolation each time.
+
+| Issue Type | Example (as per Dataset) | Cleaning Approach |
+|------------|--------------------------|-------------------|
+| **Missing Values** | customer_age missing in Customer table;<br>unit_price null in Product Inventory;<br>quantity missing in Sales Transactions | • Impute numeric analytical fields using 0, mean, or median where appropriate<br>• Fill descriptive fields like region or sales_rep with placeholders such as "Unknown"<br>• Track null patterns using data quality checks to catch recurring source issues |
+| **Inconsistent Formats** | transaction_date as "20/01/2024 10:30" vs "2024-01-20";<br>unit_price as "$99.99" vs 99.99 | • Standardize date columns into one timestamp format<br>• Remove currency symbols before casting to numeric<br>• Enforce consistent schema types during pipeline transformation |
+| **Logically Invalid Values** | quantity = -2 in Sales Transactions;<br>quantity_in_stock = -10 in Product Inventory | • Apply validation rules to detect negative or unrealistic values<br>• Replace with 0 or flag for review based on business logic |
+| **Identifier Issues** | Missing customer_id in Customer table;<br>invalid customer_email like "john@email";<br>duplicate product_code entries | • Enforce non-null primary keys for customer_id, product_code, transaction_id<br>• Validate email format using pattern checks<br>• Deduplicate records using business identifiers |
+| **Duplicate Records** | Same customer_email appearing multiple times with different customer_id values | • Identify duplicates using email as a business key<br>• Retain the record with the most complete information<br>• Track merged records for auditability and traceability |
+| **Whitespace & Hidden Characters** | product_code stored as " P001 ";<br>region as "North " | • Trim leading and trailing spaces across key columns<br>• Remove hidden/non-printable characters that break joins<br>• Standardize cleaned values before matching |
+| **Data Type Drift** | quantity stored as "2" (string) in some rows and numeric in others | • Enforce consistent casting to integer/decimal types during transformation<br>• Validate schema consistency across pipeline runs<br>• Monitor for drift using automated data quality checks |
+
+
+
 

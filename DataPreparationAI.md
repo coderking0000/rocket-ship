@@ -379,4 +379,21 @@ Foundry provides a SharePoint Online connector for ingesting files (including PD
 -	Enter your Azure Client ID, Tenant ID, and Client Secret.
 -	Configure the connector to ingest files from your SharePoint site. The connector preserves file formats, so PDFs remain unchanged for downstream processing.
 
+Note: Only SharePoint Online is supported natively. For on-premises SharePoint, use a REST API source type instead.<br>
+<img width="975" height="502" alt="image" src="https://github.com/user-attachments/assets/86ec4b8a-5cf7-4623-a3d3-24c8407fa5af" />
 
+#### Step 2: Data Extraction from PDFs
+
+Extracting text from PDFs is essential for downstream AI tasks. Foundry supports several extraction strategies, each with trade-offs in reliability, page handling, and OCR capabilities.<br>
+
+**Comparison Matrix: PDF Text Extraction Methods in Palantir Foundry**
+
+| Parameter | Foundry Raw Text Extraction | Foundry OCR Extraction (pdfOcrV1) | Foundry Layout-Aware Extraction | Vision LLM-Based Extraction | pdfminer.six (External) | lamma-parse (External) |
+|------------|----------------------------|-----------------------------------|---------------------------------|-----------------------------|--------------------------|-------------------------|
+| **Accuracy (Digital PDFs)** | High | Medium | High | High | High | High |
+| **Accuracy (Scanned PDFs)** | Low | High | High | High | Low | Medium |
+| **OCR Support** | No | Yes | Yes | Yes | No | Partial |
+| **Table/Figure Extraction** | No | No | Yes (to some extent) | Yes (advanced) | No | Yes |
+| **Customizability** | Low | Low | Medium | High (model choice) | High | High |
+| **Integration with Foundry** | Native | Native | Native | Native (code repo) | Manual install | Manual install |
+| **Support & Maintenance** | Palantir Supported | Palantir Supported | Palantir Supported | Palantir Supported | Community / Self-maintained | Community / Self-maintained |

@@ -228,3 +228,58 @@ Next, we'll explore how this same principled approach extends to unstructured da
 
 ## Unstructured Data Preparation
 In real-world scenarios, most data available for AI systems is **unstructured**. This includes text documents such as emails and articles, PDFs and PowerPoint files containing plain text, text and numeric tables, HTML documents, and system log files. Unlike structured datasets, unstructured data does not follow a predefined schema, making it significantly more challenging to process and prepare for modeling. Palantir Foundry offers two ways to work with the unstructured data 1.) Pipeline Builder   2.) Code Repository
+
+
+**Pipeline Builder** is purpose‑built for AI‑driven unstructured data processing, unlike traditional no‑code tools designed for workflow automation. It natively understands PDFs, images, text, chunking, tokenization, and embeddings—making it the ideal engine for preparing insurance policies, contracts, KYC documents, and scanned archives.
+
+**Code Repositories** are best for preparing unstructured data when you need custom code, advanced processing, or integration with AI/ML model training. They offer flexibility, version control, and access to file system APIs, making them ideal for complex workflows and large datasets.
+
+### 1.) Unstructured Data Preparation Using Pipeline Builder
+
+**Pipeline Builder Superpower**: Document → Page → Chunk → Embedding
+ (Full lineage, high explainability, and AI‑ready outputs.)
+
+ #### End‑to‑End Flow
+```
+Unstructured Data → Parsing → Extraction → Text → Chunking → Tokenization → Embeddings → Ontology
+
+```
+
+<img width="538" height="273" alt="image" src="https://github.com/user-attachments/assets/17e39c92-b2f2-4789-9d47-7bc0b5d29b35" />
+
+#### STEP‑BY‑STEP PIPELINE
+##### STEP 1 — Upload Unstructured Files to a Media Set
+Unstructured documents like **PDFs, PPTs, scanned pages, or images** are uploaded into a Media Set.
+-	At this stage, files are still **raw binary data**.
+-	No semantic meaning exists yet.
+-	Pipeline Builder treats them as media assets awaiting parsing.
+
+##### STEP 2 — Create a Pipeline (Batch or Streaming)
+Choose ingestion style:
+**Batch Pipelines**
+For historical or already‑ingested data.
+**Streaming Pipelines**
+For continuous incoming documents (real‑time ingestion).
+Both modes apply the same transformations—only timing changes.
+
+<img width="657" height="233" alt="image" src="https://github.com/user-attachments/assets/13cd9351-2b01-4068-b365-d29e73618c92" />
+
+##### STEP 3 — Document Nature Identification
+Every document is either:
+- Digitally Born PDFs
+Contain embedded selectable text.<br>
+ → Use **Raw Text Extraction** (more accurate, deterministic)
+- Scanned PDFs / Images
+Contains only pixel-level text.<br>
+ → Use **OCR** (probabilistic, inference-based)
+
+**Best Practice**:
+- Always attempt raw extraction first
+- Use OCR only if text is missing
+
+
+<img width="663" height="230" alt="image" src="https://github.com/user-attachments/assets/b87493c2-41a6-4af6-a893-6b5a84eb3433" />
+
+##### STEP 4 — Parse & Extract Text
+Start with:<br>
+

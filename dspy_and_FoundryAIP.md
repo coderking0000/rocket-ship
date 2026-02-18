@@ -48,7 +48,7 @@ The application:
 
 The important takeaway is not the stock screener itself, but the architecture: modular reasoning, evaluation-driven optimization, and interchangeable retrieval strategies.
 
-![View Notebook](finance-agent-with-dspy/rag-stock-screener-with-dspy.ipynb)
+![View Notebook](./finance-agent-with-dspy/rag-stock-screener-with-dspy.ipynb)
 
 ---
 

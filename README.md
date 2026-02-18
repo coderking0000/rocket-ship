@@ -107,7 +107,7 @@
 <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; border: 0 !important; background-color: #ffffff !important; border-style: hidden !important;">
     <tr style="border: 0 !important; background-color: #ffffff !important;">
         <td width="40%" valign="top" style="vertical-align: top !important; padding: 10px; border: 0 !important; background-color: #ffffff !important; border-color: #ffffff !important;">
-            <h3 style="margin: 0 !important; padding: 0 !important; line-height: 1.2;">03 <a href="https://github.com/shauryashaurya/rocket-ship/blob/main/dspy_and_FoundryAIP.md">Leveraging DSPy with Foundry AIP: Adaptive AI Meets Enterprise-Grade Infrastructure</a></h3>
+            <h3 style="margin: 0 !important; padding: 0 !important; line-height: 1.2;">05 <a href="https://github.com/shauryashaurya/rocket-ship/blob/main/dspy_and_FoundryAIP.md">Leveraging DSPy with Foundry AIP: Adaptive AI Meets Enterprise-Grade Infrastructure</a></h3>
             <h4 style="margin-top: 15px !important; margin-bottom: 5px !important;">Collaborators:</h4>
             <ol style="margin-top: 0 !important;">
                 <li><a href="https://github.com/nileshsaraf56">Nilesh Saraf</a>, <a href="https://www.linkedin.com/in/nilesh-saraf-8b7aa327b/">LinkedIn</a></li>
@@ -128,7 +128,7 @@
             <img src="./images/06-cloud-platforms-and-foundry.png" width="100%" style="display: block; margin: 0 !important; padding: 0 !important; border: 0 !important; outline: none !important; box-shadow: none !important;" alt="GenAI Applications in Palantir Foundry (AIP)" />
         </td>
         <td width="40%" valign="top" style="vertical-align: top !important; padding: 10px; border: 0 !important; background-color: #ffffff !important; border-color: #ffffff !important;">
-            <h3 style="margin: 0 !important; padding: 0 !important; line-height: 1.2;">04 <a href="https://github.com/shauryashaurya/rocket-ship/blob/main/Palantir%20Foundry%20vs%20Traditional%20Cloud%20Data%20Platform.md">Palantir Foundry vs Traditional Cloud Data Platforms</a></h3>
+            <h3 style="margin: 0 !important; padding: 0 !important; line-height: 1.2;">06 <a href="https://github.com/shauryashaurya/rocket-ship/blob/main/Palantir%20Foundry%20vs%20Traditional%20Cloud%20Data%20Platform.md">Palantir Foundry vs Traditional Cloud Data Platforms</a></h3>
             <h4 style="margin-top: 15px !important; margin-bottom: 5px !important;">Collaborators:</h4>                      
 			<ol style="margin-top: 0 !important;">
                 <li><a href="https://github.com/PrashantJha29">Prashant Jha</a>, <a href="https://www.linkedin.com/in/prashantjha29/">LinkedIn</a></li>

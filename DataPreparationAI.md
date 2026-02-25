@@ -243,7 +243,8 @@ In real-world scenarios, most data available for AI systems is **unstructured**.
 **Pipeline Builder Superpower**: Document → Page → Chunk → Embedding
  (Full lineage, high explainability, and AI‑ready outputs.)
 
- #### End‑to‑End Flow
+#### End‑to‑End Flow
+
 ```
 Unstructured Data → Parsing → Extraction → Text → Chunking → Tokenization → Embeddings → Ontology
 

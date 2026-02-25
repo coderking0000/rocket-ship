@@ -419,7 +419,8 @@ Before chunking or embedding, normalizing text ensures consistency and improves 
 -	Remove or standardize special characters.
 -	Apply Unicode normalization for consistent encoding.
 -	Nullify empty or placeholder values (e.g., "N/A", "Unknown").
--	Date format normalization  
+-	Date format normalization
+    
 ```
 import pandas as pd 
 import unicodedata 
